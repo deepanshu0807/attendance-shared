@@ -1,0 +1,66 @@
+name: attendance_shared
+description: A new Flutter project.
+
+#
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.1
+
+  firebase_core:
+  firebase_auth: ^0.20.0+1
+  cloud_firestore:
+  firebase_storage:
+  firebase_performance:
+  
+
+  freezed_annotation: ^0.12.0
+  flutter_bloc:
+  rxdart:
+  dartz:
+  uuid:
+  material_design_icons_flutter:
+
+  injectable:
+  get_it:
+  flushbar:
+  kt_dart:
+
+  json_annotation:
+  flutter_screenutil:
+
+  google_fonts:
+  auto_route:
+  shared_preferences:
+
+  cached_network_image:
+
+  url_launcher:
+  animated_text:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  
+  build_runner: 
+  freezed: 0.12.7
+  injectable_generator:
+  lint:
+  json_serializable:
+
+
+
+
+flutter:
+
+
+  uses-material-design: true
