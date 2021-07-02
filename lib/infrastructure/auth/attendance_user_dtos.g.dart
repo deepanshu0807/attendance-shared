@@ -13,9 +13,7 @@ _$_AttendanceUserDtos _$_$_AttendanceUserDtosFromJson(
     email: json['email'] as String,
     name: json['name'] as String,
     phoneNumber: json['phoneNumber'] as String,
-    role: json['role'] as String,
     lastSignInTime: json['lastSignInTime'] as int,
-    isApproved: json['isApproved'] as bool,
     picUrl: json['picUrl'] as String,
   );
 }
@@ -27,8 +25,6 @@ Map<String, dynamic> _$_$_AttendanceUserDtosToJson(
       'email': instance.email,
       'name': instance.name,
       'phoneNumber': instance.phoneNumber,
-      'role': instance.role,
       'lastSignInTime': instance.lastSignInTime,
-      'isApproved': instance.isApproved,
       'picUrl': instance.picUrl,
     };

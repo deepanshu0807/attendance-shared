@@ -13,9 +13,7 @@ abstract class AttendanceUserDtos with _$AttendanceUserDtos {
       @required String email,
       @required String name,
       @required String phoneNumber,
-      @required String role,
       @required int lastSignInTime,
-      @required bool isApproved,
       String picUrl}) = _AttendanceUserDtos;
 
   factory AttendanceUserDtos.fromDomain(AttendanceUser user) {
@@ -23,10 +21,8 @@ abstract class AttendanceUserDtos with _$AttendanceUserDtos {
       id: user.uId.getOrCrash(),
       email: user.emailAddress.getOrElse("NA"),
       phoneNumber: user.phoneNumber.getOrElse(""),
-      role: user.role.toValueString(),
       lastSignInTime: user.lastSignInDateTime.millisecondsSinceEpoch,
       name: user.name.getOrCrash(),
-      isApproved: user.isApproved,
       picUrl: user.picUrl,
     );
   }
@@ -55,11 +51,9 @@ extension AttendanceUserDtosX on AttendanceUserDtos {
       uId: UniqueId.fromUniqueString(this.id ?? ""),
       emailAddress: EmailAddress(email),
       phoneNumber: PhoneNumber(phoneNumber),
-      role: role.toUserRole(),
       lastSignInDateTime:
           DateTime.fromMillisecondsSinceEpoch(lastSignInTime ?? 0),
       name: Name(name),
-      isApproved: isApproved,
       picUrl: picUrl,
     );
   }

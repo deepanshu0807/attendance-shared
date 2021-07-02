@@ -22,18 +22,14 @@ class _$AttendanceUserDtosTearOff {
       @required String email,
       @required String name,
       @required String phoneNumber,
-      @required String role,
       @required int lastSignInTime,
-      @required bool isApproved,
       String picUrl}) {
     return _AttendanceUserDtos(
       id: id,
       email: email,
       name: name,
       phoneNumber: phoneNumber,
-      role: role,
       lastSignInTime: lastSignInTime,
-      isApproved: isApproved,
       picUrl: picUrl,
     );
   }
@@ -54,9 +50,7 @@ mixin _$AttendanceUserDtos {
   String get email;
   String get name;
   String get phoneNumber;
-  String get role;
   int get lastSignInTime;
-  bool get isApproved;
   String get picUrl;
 
   Map<String, dynamic> toJson();
@@ -74,9 +68,7 @@ abstract class $AttendanceUserDtosCopyWith<$Res> {
       String email,
       String name,
       String phoneNumber,
-      String role,
       int lastSignInTime,
-      bool isApproved,
       String picUrl});
 }
 
@@ -95,9 +87,7 @@ class _$AttendanceUserDtosCopyWithImpl<$Res>
     Object email = freezed,
     Object name = freezed,
     Object phoneNumber = freezed,
-    Object role = freezed,
     Object lastSignInTime = freezed,
-    Object isApproved = freezed,
     Object picUrl = freezed,
   }) {
     return _then(_value.copyWith(
@@ -106,12 +96,9 @@ class _$AttendanceUserDtosCopyWithImpl<$Res>
       name: name == freezed ? _value.name : name as String,
       phoneNumber:
           phoneNumber == freezed ? _value.phoneNumber : phoneNumber as String,
-      role: role == freezed ? _value.role : role as String,
       lastSignInTime: lastSignInTime == freezed
           ? _value.lastSignInTime
           : lastSignInTime as int,
-      isApproved:
-          isApproved == freezed ? _value.isApproved : isApproved as bool,
       picUrl: picUrl == freezed ? _value.picUrl : picUrl as String,
     ));
   }
@@ -129,9 +116,7 @@ abstract class _$AttendanceUserDtosCopyWith<$Res>
       String email,
       String name,
       String phoneNumber,
-      String role,
       int lastSignInTime,
-      bool isApproved,
       String picUrl});
 }
 
@@ -152,9 +137,7 @@ class __$AttendanceUserDtosCopyWithImpl<$Res>
     Object email = freezed,
     Object name = freezed,
     Object phoneNumber = freezed,
-    Object role = freezed,
     Object lastSignInTime = freezed,
-    Object isApproved = freezed,
     Object picUrl = freezed,
   }) {
     return _then(_AttendanceUserDtos(
@@ -163,12 +146,9 @@ class __$AttendanceUserDtosCopyWithImpl<$Res>
       name: name == freezed ? _value.name : name as String,
       phoneNumber:
           phoneNumber == freezed ? _value.phoneNumber : phoneNumber as String,
-      role: role == freezed ? _value.role : role as String,
       lastSignInTime: lastSignInTime == freezed
           ? _value.lastSignInTime
           : lastSignInTime as int,
-      isApproved:
-          isApproved == freezed ? _value.isApproved : isApproved as bool,
       picUrl: picUrl == freezed ? _value.picUrl : picUrl as String,
     ));
   }
@@ -185,17 +165,13 @@ class _$_AttendanceUserDtos
       @required this.email,
       @required this.name,
       @required this.phoneNumber,
-      @required this.role,
       @required this.lastSignInTime,
-      @required this.isApproved,
       this.picUrl})
       : assert(id != null),
         assert(email != null),
         assert(name != null),
         assert(phoneNumber != null),
-        assert(role != null),
-        assert(lastSignInTime != null),
-        assert(isApproved != null);
+        assert(lastSignInTime != null);
 
   factory _$_AttendanceUserDtos.fromJson(Map<String, dynamic> json) =>
       _$_$_AttendanceUserDtosFromJson(json);
@@ -209,17 +185,13 @@ class _$_AttendanceUserDtos
   @override
   final String phoneNumber;
   @override
-  final String role;
-  @override
   final int lastSignInTime;
-  @override
-  final bool isApproved;
   @override
   final String picUrl;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AttendanceUserDtos(id: $id, email: $email, name: $name, phoneNumber: $phoneNumber, role: $role, lastSignInTime: $lastSignInTime, isApproved: $isApproved, picUrl: $picUrl)';
+    return 'AttendanceUserDtos(id: $id, email: $email, name: $name, phoneNumber: $phoneNumber, lastSignInTime: $lastSignInTime, picUrl: $picUrl)';
   }
 
   @override
@@ -231,9 +203,7 @@ class _$_AttendanceUserDtos
       ..add(DiagnosticsProperty('email', email))
       ..add(DiagnosticsProperty('name', name))
       ..add(DiagnosticsProperty('phoneNumber', phoneNumber))
-      ..add(DiagnosticsProperty('role', role))
       ..add(DiagnosticsProperty('lastSignInTime', lastSignInTime))
-      ..add(DiagnosticsProperty('isApproved', isApproved))
       ..add(DiagnosticsProperty('picUrl', picUrl));
   }
 
@@ -250,14 +220,9 @@ class _$_AttendanceUserDtos
             (identical(other.phoneNumber, phoneNumber) ||
                 const DeepCollectionEquality()
                     .equals(other.phoneNumber, phoneNumber)) &&
-            (identical(other.role, role) ||
-                const DeepCollectionEquality().equals(other.role, role)) &&
             (identical(other.lastSignInTime, lastSignInTime) ||
                 const DeepCollectionEquality()
                     .equals(other.lastSignInTime, lastSignInTime)) &&
-            (identical(other.isApproved, isApproved) ||
-                const DeepCollectionEquality()
-                    .equals(other.isApproved, isApproved)) &&
             (identical(other.picUrl, picUrl) ||
                 const DeepCollectionEquality().equals(other.picUrl, picUrl)));
   }
@@ -269,9 +234,7 @@ class _$_AttendanceUserDtos
       const DeepCollectionEquality().hash(email) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(phoneNumber) ^
-      const DeepCollectionEquality().hash(role) ^
       const DeepCollectionEquality().hash(lastSignInTime) ^
-      const DeepCollectionEquality().hash(isApproved) ^
       const DeepCollectionEquality().hash(picUrl);
 
   @JsonKey(ignore: true)
@@ -291,9 +254,7 @@ abstract class _AttendanceUserDtos implements AttendanceUserDtos {
       @required String email,
       @required String name,
       @required String phoneNumber,
-      @required String role,
       @required int lastSignInTime,
-      @required bool isApproved,
       String picUrl}) = _$_AttendanceUserDtos;
 
   factory _AttendanceUserDtos.fromJson(Map<String, dynamic> json) =
@@ -308,11 +269,7 @@ abstract class _AttendanceUserDtos implements AttendanceUserDtos {
   @override
   String get phoneNumber;
   @override
-  String get role;
-  @override
   int get lastSignInTime;
-  @override
-  bool get isApproved;
   @override
   String get picUrl;
   @override

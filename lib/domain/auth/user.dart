@@ -14,9 +14,7 @@ abstract class AttendanceUser with _$AttendanceUser {
     @required EmailAddress emailAddress,
     String picUrl,
     @required PhoneNumber phoneNumber,
-    @required UserRole role,
     @required DateTime lastSignInDateTime,
-    @required bool isApproved,
   }) = _AttendanceUser;
 }
 
@@ -28,8 +26,6 @@ extension AttendanceUserX on AttendanceUser {
       "emailAddress": emailAddress.getOrElse(""),
       "picUrl": picUrl,
       "phoneNumber": phoneNumber.getOrElse(""),
-      "role": role.toValueString(),
-      "isApproved": isApproved,
       "lastSignInDateTime": lastSignInDateTime?.millisecondsSinceEpoch ?? 0,
     };
   }

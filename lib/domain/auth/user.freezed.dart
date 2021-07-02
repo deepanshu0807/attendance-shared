@@ -20,18 +20,14 @@ class _$AttendanceUserTearOff {
       @required EmailAddress emailAddress,
       String picUrl,
       @required PhoneNumber phoneNumber,
-      @required UserRole role,
-      @required DateTime lastSignInDateTime,
-      @required bool isApproved}) {
+      @required DateTime lastSignInDateTime}) {
     return _AttendanceUser(
       uId: uId,
       name: name,
       emailAddress: emailAddress,
       picUrl: picUrl,
       phoneNumber: phoneNumber,
-      role: role,
       lastSignInDateTime: lastSignInDateTime,
-      isApproved: isApproved,
     );
   }
 }
@@ -47,9 +43,7 @@ mixin _$AttendanceUser {
   EmailAddress get emailAddress;
   String get picUrl;
   PhoneNumber get phoneNumber;
-  UserRole get role;
   DateTime get lastSignInDateTime;
-  bool get isApproved;
 
   @JsonKey(ignore: true)
   $AttendanceUserCopyWith<AttendanceUser> get copyWith;
@@ -66,11 +60,7 @@ abstract class $AttendanceUserCopyWith<$Res> {
       EmailAddress emailAddress,
       String picUrl,
       PhoneNumber phoneNumber,
-      UserRole role,
-      DateTime lastSignInDateTime,
-      bool isApproved});
-
-  $UserRoleCopyWith<$Res> get role;
+      DateTime lastSignInDateTime});
 }
 
 /// @nodoc
@@ -89,9 +79,7 @@ class _$AttendanceUserCopyWithImpl<$Res>
     Object emailAddress = freezed,
     Object picUrl = freezed,
     Object phoneNumber = freezed,
-    Object role = freezed,
     Object lastSignInDateTime = freezed,
-    Object isApproved = freezed,
   }) {
     return _then(_value.copyWith(
       uId: uId == freezed ? _value.uId : uId as UniqueId,
@@ -103,23 +91,10 @@ class _$AttendanceUserCopyWithImpl<$Res>
       phoneNumber: phoneNumber == freezed
           ? _value.phoneNumber
           : phoneNumber as PhoneNumber,
-      role: role == freezed ? _value.role : role as UserRole,
       lastSignInDateTime: lastSignInDateTime == freezed
           ? _value.lastSignInDateTime
           : lastSignInDateTime as DateTime,
-      isApproved:
-          isApproved == freezed ? _value.isApproved : isApproved as bool,
     ));
-  }
-
-  @override
-  $UserRoleCopyWith<$Res> get role {
-    if (_value.role == null) {
-      return null;
-    }
-    return $UserRoleCopyWith<$Res>(_value.role, (value) {
-      return _then(_value.copyWith(role: value));
-    });
   }
 }
 
@@ -136,12 +111,7 @@ abstract class _$AttendanceUserCopyWith<$Res>
       EmailAddress emailAddress,
       String picUrl,
       PhoneNumber phoneNumber,
-      UserRole role,
-      DateTime lastSignInDateTime,
-      bool isApproved});
-
-  @override
-  $UserRoleCopyWith<$Res> get role;
+      DateTime lastSignInDateTime});
 }
 
 /// @nodoc
@@ -162,9 +132,7 @@ class __$AttendanceUserCopyWithImpl<$Res>
     Object emailAddress = freezed,
     Object picUrl = freezed,
     Object phoneNumber = freezed,
-    Object role = freezed,
     Object lastSignInDateTime = freezed,
-    Object isApproved = freezed,
   }) {
     return _then(_AttendanceUser(
       uId: uId == freezed ? _value.uId : uId as UniqueId,
@@ -176,12 +144,9 @@ class __$AttendanceUserCopyWithImpl<$Res>
       phoneNumber: phoneNumber == freezed
           ? _value.phoneNumber
           : phoneNumber as PhoneNumber,
-      role: role == freezed ? _value.role : role as UserRole,
       lastSignInDateTime: lastSignInDateTime == freezed
           ? _value.lastSignInDateTime
           : lastSignInDateTime as DateTime,
-      isApproved:
-          isApproved == freezed ? _value.isApproved : isApproved as bool,
     ));
   }
 }
@@ -196,16 +161,12 @@ class _$_AttendanceUser
       @required this.emailAddress,
       this.picUrl,
       @required this.phoneNumber,
-      @required this.role,
-      @required this.lastSignInDateTime,
-      @required this.isApproved})
+      @required this.lastSignInDateTime})
       : assert(uId != null),
         assert(name != null),
         assert(emailAddress != null),
         assert(phoneNumber != null),
-        assert(role != null),
-        assert(lastSignInDateTime != null),
-        assert(isApproved != null);
+        assert(lastSignInDateTime != null);
 
   @override
   final UniqueId uId;
@@ -218,15 +179,11 @@ class _$_AttendanceUser
   @override
   final PhoneNumber phoneNumber;
   @override
-  final UserRole role;
-  @override
   final DateTime lastSignInDateTime;
-  @override
-  final bool isApproved;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AttendanceUser(uId: $uId, name: $name, emailAddress: $emailAddress, picUrl: $picUrl, phoneNumber: $phoneNumber, role: $role, lastSignInDateTime: $lastSignInDateTime, isApproved: $isApproved)';
+    return 'AttendanceUser(uId: $uId, name: $name, emailAddress: $emailAddress, picUrl: $picUrl, phoneNumber: $phoneNumber, lastSignInDateTime: $lastSignInDateTime)';
   }
 
   @override
@@ -239,9 +196,7 @@ class _$_AttendanceUser
       ..add(DiagnosticsProperty('emailAddress', emailAddress))
       ..add(DiagnosticsProperty('picUrl', picUrl))
       ..add(DiagnosticsProperty('phoneNumber', phoneNumber))
-      ..add(DiagnosticsProperty('role', role))
-      ..add(DiagnosticsProperty('lastSignInDateTime', lastSignInDateTime))
-      ..add(DiagnosticsProperty('isApproved', isApproved));
+      ..add(DiagnosticsProperty('lastSignInDateTime', lastSignInDateTime));
   }
 
   @override
@@ -260,14 +215,9 @@ class _$_AttendanceUser
             (identical(other.phoneNumber, phoneNumber) ||
                 const DeepCollectionEquality()
                     .equals(other.phoneNumber, phoneNumber)) &&
-            (identical(other.role, role) ||
-                const DeepCollectionEquality().equals(other.role, role)) &&
             (identical(other.lastSignInDateTime, lastSignInDateTime) ||
                 const DeepCollectionEquality()
-                    .equals(other.lastSignInDateTime, lastSignInDateTime)) &&
-            (identical(other.isApproved, isApproved) ||
-                const DeepCollectionEquality()
-                    .equals(other.isApproved, isApproved)));
+                    .equals(other.lastSignInDateTime, lastSignInDateTime)));
   }
 
   @override
@@ -278,9 +228,7 @@ class _$_AttendanceUser
       const DeepCollectionEquality().hash(emailAddress) ^
       const DeepCollectionEquality().hash(picUrl) ^
       const DeepCollectionEquality().hash(phoneNumber) ^
-      const DeepCollectionEquality().hash(role) ^
-      const DeepCollectionEquality().hash(lastSignInDateTime) ^
-      const DeepCollectionEquality().hash(isApproved);
+      const DeepCollectionEquality().hash(lastSignInDateTime);
 
   @JsonKey(ignore: true)
   @override
@@ -295,9 +243,7 @@ abstract class _AttendanceUser implements AttendanceUser {
       @required EmailAddress emailAddress,
       String picUrl,
       @required PhoneNumber phoneNumber,
-      @required UserRole role,
-      @required DateTime lastSignInDateTime,
-      @required bool isApproved}) = _$_AttendanceUser;
+      @required DateTime lastSignInDateTime}) = _$_AttendanceUser;
 
   @override
   UniqueId get uId;
@@ -310,11 +256,7 @@ abstract class _AttendanceUser implements AttendanceUser {
   @override
   PhoneNumber get phoneNumber;
   @override
-  UserRole get role;
-  @override
   DateTime get lastSignInDateTime;
-  @override
-  bool get isApproved;
   @override
   @JsonKey(ignore: true)
   _$AttendanceUserCopyWith<_AttendanceUser> get copyWith;

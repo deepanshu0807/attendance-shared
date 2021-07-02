@@ -11,10 +11,8 @@ extension FirebaseUserExt on User {
       emailAddress: email != null && email.isNotEmpty
           ? EmailAddress(email)
           : EmailAddress(""),
-      role: UserRole.employee(), //TODO
       phoneNumber: PhoneNumber(phoneNumber),
       picUrl: photoURL,
-      isApproved: false,
       lastSignInDateTime: metadata.lastSignInTime,
     );
   }

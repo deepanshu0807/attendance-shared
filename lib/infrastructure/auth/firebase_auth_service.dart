@@ -127,9 +127,6 @@ class FirebaseAuthService implements IAuth {
       {EmailAddress email, Password password, Name name, UserRole role}) async {
     final emailStr = email.getOrCrash();
     final pwdStr = password.getOrCrash();
-    // final nameStr = name.getOrCrash();
-    // final roleStr = role.toValueString();
-    // final c = await _firestore.users();
 
     UserCredential authResult;
     try {
@@ -139,13 +136,12 @@ class FirebaseAuthService implements IAuth {
       );
       if (authResult.user != null) {
         final empUser = AttendanceUser(
-            uId: UniqueId.fromUniqueString(authResult.user.uid),
-            name: name,
-            emailAddress: email,
-            phoneNumber: PhoneNumber(""),
-            role: role,
-            lastSignInDateTime: DateTime.now(),
-            isApproved: false);
+          uId: UniqueId.fromUniqueString(authResult.user.uid),
+          name: name,
+          emailAddress: email,
+          phoneNumber: PhoneNumber(""),
+          lastSignInDateTime: DateTime.now(),
+        );
         try {
           final cRef = await _firestore.users();
           final cDto = AttendanceUserDtos.fromDomain(empUser);
@@ -157,16 +153,6 @@ class FirebaseAuthService implements IAuth {
           debugPrint("ERR:$e\n\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n");
           //return left(const InfraFailure.serverError());
         }
-        // await c.doc(authResult.user.uid).set({
-        //   'name': nameStr,
-        //   'emailAddress': emailStr,
-        //   'role': roleStr,
-        //   "uId": authResult.user.uid,
-        //   'isApproved': false,
-        //   "picUrl": "",
-        //   "phoneNumber": "",
-        // });
-        // return const Right(unit);
       } else {
         return const Left(AuthFailure.accountExistWithDifferentCredential());
       }
@@ -204,33 +190,6 @@ class FirebaseAuthService implements IAuth {
   Future<void> signOut() async {
     await _auth.signOut();
     return;
-  }
-
-  AuthFailure _mapFirebaseAuthExceptionToAuthFailure(FirebaseAuthException e) {
-    switch (e.code) {
-      case "account-exists-with-different-credential":
-        return const AuthFailure.accountExistWithDifferentCredential();
-        break;
-      case "invalid-credential":
-        return const AuthFailure.invalidCredential();
-        break;
-      case "operation-not-allowed":
-        return const AuthFailure.notAllowed();
-        break;
-      case "user-disabled":
-        return const AuthFailure.userNotFound();
-        break;
-      case "user-not-found":
-        return const AuthFailure.userNotFound();
-        break;
-      case "wrong-password":
-        return const AuthFailure.invalidEmailPasswordCombination();
-        break;
-      case "invalid-email":
-        return const AuthFailure.invalidEmail();
-      default:
-        return const AuthFailure.serverError();
-    }
   }
 
   @override
