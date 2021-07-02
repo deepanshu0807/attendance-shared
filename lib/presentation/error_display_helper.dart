@@ -34,10 +34,46 @@ class DisplayMessage {
   static const String paymentSuccess = "Payment success!";
 
   static void showErrorMessage(BuildContext context, String msg) {
-    FlushbarHelper.createError(message: msg).show(context);
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      backgroundColor: Colors.red,
+      content: Row(
+        children: [
+          Icon(
+            Icons.close,
+            color: Colors.white,
+          ),
+          SizedBox(
+            width: 20,
+          ),
+          Text(
+            msg,
+            style: TextStyle(color: Colors.white),
+          ),
+        ],
+      ),
+      duration: Duration(seconds: 4),
+    ));
   }
 
   static void showSuccessMessage(BuildContext context, String msg) {
-    FlushbarHelper.createSuccess(message: msg).show(context);
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      backgroundColor: Colors.green,
+      content: Row(
+        children: [
+          Icon(
+            Icons.check,
+            color: Colors.white,
+          ),
+          SizedBox(
+            width: 20,
+          ),
+          Text(
+            msg,
+            style: TextStyle(color: Colors.white),
+          ),
+        ],
+      ),
+      duration: Duration(seconds: 4),
+    ));
   }
 }
